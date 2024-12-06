@@ -1,6 +1,7 @@
 package com.agricraft.agricraft.common.plugin.pneumaticcraft;
 
 import com.agricraft.agricraft.api.AgriApi;
+import com.agricraft.agricraft.api.config.CompatConfig;
 import me.desht.pneumaticcraft.common.core.ModHarvestHandlers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,7 +14,7 @@ public class PneumaticCraftPlugin {
 
     @SubscribeEvent
     public static void registerAgriCraftHarvestHandler(RegisterEvent event) {
-        if (ModList.get().isLoaded("pneumaticcraft")) {
+        if (ModList.get().isLoaded("pneumaticcraft") && CompatConfig.enablePneumaticCraft) {
             event.register(ModHarvestHandlers.HARVEST_HANDLERS_DEFERRED.getRegistryKey(),
                     helper -> helper.register("agricraft", new AgriCraftHarvestHandler())
             );
