@@ -340,24 +340,24 @@ public class ModelsDatagen {
 	public static void registerEnchantedPlant(ModelProvider<BlockModelBuilder> m) {
 		List.of("belladonna", "garlic", "mandrake", "water_artichoke").forEach(name -> {
 			m.withExistingParent(name + "_stage0", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage1", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage2", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage3", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_1");
-			m.withExistingParent(name + "_stage4", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_1");
-			m.withExistingParent(name + "_stage5", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_2");
-			m.withExistingParent(name + "_stage6", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_2");
-			m.withExistingParent(name + "_stage7", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage1", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_1");
+			m.withExistingParent(name + "_stage2", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_1");
+			m.withExistingParent(name + "_stage3", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_2");
+			m.withExistingParent(name + "_stage4", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_2");
+			m.withExistingParent(name + "_stage5", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage6", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage7", "agricraft:crop/crop_hash").texture("crop", "enchanted:block/" + name + "_stage_4");
 		});
 
 		List.of("snowbell", "wolfsbane").forEach(name -> {
 			m.withExistingParent(name + "_stage0", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage1", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage2", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_0");
-			m.withExistingParent(name + "_stage3", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_1");
-			m.withExistingParent(name + "_stage4", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_1");
-			m.withExistingParent(name + "_stage5", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_2");
-			m.withExistingParent(name + "_stage6", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_2");
-			m.withExistingParent(name + "_stage7", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage1", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_1");
+			m.withExistingParent(name + "_stage2", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_1");
+			m.withExistingParent(name + "_stage3", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_2");
+			m.withExistingParent(name + "_stage4", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_2");
+			m.withExistingParent(name + "_stage5", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage6", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_3");
+			m.withExistingParent(name + "_stage7", "agricraft:crop/crop_cross").texture("crop", "enchanted:block/" + name + "_stage_4");
 		});
 	}
 
