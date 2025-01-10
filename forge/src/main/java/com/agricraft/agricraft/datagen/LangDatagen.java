@@ -639,4 +639,20 @@ public class LangDatagen {
 
 		lang.add("agricraft.tooltip.condition.botania_mana", "This plant can not grow without mana");
 	}
+
+	public static void enchanted(LanguageProvider lang) {
+		lang.add("plant.agricraft.enchanted.belladonna", "Belladonna");
+		lang.add("plant.agricraft.enchanted.mandrake", "Mandrake");
+		lang.add("plant.agricraft.enchanted.snowbell", "Snowbell");
+		lang.add("plant.agricraft.enchanted.water_artichoke", "Water Artichoke");
+		lang.add("plant.agricraft.enchanted.garlic", "Garlic");
+		lang.add("plant.agricraft.enchanted.wolfsbane", "Wolfsbane");
+
+		lang.add("seed.agricraft.enchanted.belladonna", "Belladonna Seeds");
+		lang.add("seed.agricraft.enchanted.mandrake", "Mandrake Seeds");
+		lang.add("seed.agricraft.enchanted.snowbell", "Snowbell Seeds");
+		lang.add("seed.agricraft.enchanted.water_artichoke", "Water Artichoke Seeds");
+		lang.add("seed.agricraft.enchanted.garlic", "Garlic");
+		lang.add("seed.agricraft.enchanted.wolfsbane", "Wolfsbane Seeds");
+	}
 }
