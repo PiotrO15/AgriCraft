@@ -205,10 +205,10 @@ public class MutationsDatagen {
 
 	public static void registerEnchanted(BootstapContext<AgriMutation> context) {
 		r(context, "enchanted", "belladonna", new AgriMutation("enchanted:belladonna", "minecraft:dandelion", "minecraft:pumpkin", 0.5));
-		r(context, "enchanted", "garlic", new AgriMutation("enchanted:garlic", "minecraft:allium", "farmersdelight:onion", 0.5));
+		r(context, "enchanted", "garlic", new AgriMutation("enchanted:garlic", "minecraft:allium", "enchanted:belladonna", 0.5));
 		r(context, "enchanted", "mandrake", new AgriMutation("enchanted:mandrake", "enchanted:belladonna", "minecraft:potato", 0.5));
 		r(context, "enchanted", "snowbell", new AgriMutation("enchanted:snowbell", "minecraft:sweet_berries", "enchanted:belladonna", 0.5));
-		r(context, "enchanted", "water_artichoke", new AgriMutation("enchanted:water_artichoke", "minecraft:sugar_cane", "minecraft:belladonna", 0.5));
+		r(context, "enchanted", "water_artichoke", new AgriMutation("enchanted:water_artichoke", "minecraft:sugar_cane", "enchanted:belladonna", 0.5));
 		r(context, "enchanted", "wolfsbane", new AgriMutation("enchanted:wolfsbane", "minecraft:lily_of_the_valley", "enchanted:belladonna", 0.5));
 	}
 
