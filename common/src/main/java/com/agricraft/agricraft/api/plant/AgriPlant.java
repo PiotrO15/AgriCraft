@@ -150,6 +150,10 @@ public class AgriPlant {
 		});
 	}
 
+	public List<AgriProduct> getProducts() {
+		return this.products;
+	}
+
 	public void getHarvestProducts(Consumer<ItemStack> products, AgriGrowthStage growthStage, AgriGenome genome, RandomSource random) {
 		if (growthStage.isMature()) {
 			this.products.stream().filter(product -> product.shouldDrop(random))

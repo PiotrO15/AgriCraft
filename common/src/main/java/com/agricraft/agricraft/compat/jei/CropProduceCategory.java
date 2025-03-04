@@ -4,6 +4,7 @@ import com.agricraft.agricraft.api.AgriApi;
 import com.agricraft.agricraft.api.plant.AgriPlant;
 import com.agricraft.agricraft.api.codecs.AgriProduct;
 import com.agricraft.agricraft.common.item.AgriSeedItem;
+import com.agricraft.agricraft.common.util.Platform;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
@@ -17,10 +18,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 
@@ -67,17 +70,38 @@ public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 		// outputs
 		int index = 0;
 
-		ArrayList<ItemStack> products = new ArrayList<>();
-		plant.getAllPossibleProducts(products::add);
+//		ArrayList<ItemStack> products = new ArrayList<>();
+//		plant.getAllPossibleProducts(products::add);
+//		for (int y = 33; y < 83; y += 18) {
+//			if (index >= products.size()) {
+//				break;
+//			}
+//			for (int x = 75; x < 129; x += 18) {
+//				if (index < products.size()) {
+//					ItemStack product = products.get(index);
+//					IRecipeSlotBuilder slotBuilder = builder.addSlot(RecipeIngredientRole.OUTPUT, x, y).setSlotName("output_" + index);
+//					slotBuilder.addItemStack(product);
+//					index++;
+//				} else {
+//					break;
+//				}
+//			}
+//		}
+
+		ArrayList<AgriProduct> products = new ArrayList<>(plant.getProducts());
 		for (int y = 33; y < 83; y += 18) {
 			if (index >= products.size()) {
 				break;
 			}
 			for (int x = 75; x < 129; x += 18) {
 				if (index < products.size()) {
-					ItemStack product = products.get(index);
+					AgriProduct product = products.get(index);
 					IRecipeSlotBuilder slotBuilder = builder.addSlot(RecipeIngredientRole.OUTPUT, x, y).setSlotName("output_" + index);
-					slotBuilder.addItemStack(product);
+					slotBuilder.addItemStack(productToItemStack(product));
+					slotBuilder.addTooltipCallback((recipeSlotView, tooltip) -> {
+						tooltip.add(Component.literal(product.chance() + "%"));
+						tooltip.add(Component.literal(product.min() + " - " + product.max()));
+					});
 					index++;
 				} else {
 					break;
@@ -86,4 +110,19 @@ public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 		}
 	}
 
+	private ItemStack productToItemStack(AgriProduct product) {
+		Platform.get().getItemsFromLocation(product.item()).forEach(item -> {
+			ItemStack itemStack = new ItemStack(item, product.min());
+			if (!product.nbt().isEmpty()) {
+				itemStack.getOrCreateTag().merge(product.nbt());
+			}
+		});
+
+        Item item = Platform.get().getItemsFromLocation(product.item()).get(0);
+		ItemStack itemStack = new ItemStack(item, product.min());
+		if (!product.nbt().isEmpty()) {
+			itemStack.getOrCreateTag().merge(product.nbt());
+		}
+		return itemStack;
+	}
 }
