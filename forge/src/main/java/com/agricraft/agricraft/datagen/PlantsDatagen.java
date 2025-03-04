@@ -281,7 +281,7 @@ public class PlantsDatagen {
 	}
 
 	private static void mysticalagriculture(BootstapContext<AgriPlant> context, String plantId) {
-		r(context, "mysticalagriculture", plantId, new AgriPlant.Builder().seeds(AgriSeed.builder().item("mysticalagriculture:" + plantId + "_seeds").build()).stages16().harvest(3).cloneable(false).chances(0.65, 0.025, 0.1).products(AgriProduct.builder().item("mysticalagriculture:" + plantId + "_essence").count(1, 1, 0.75).build()).requirement(AgriRequirement.builder().humidity(WET, EQUAL, 0.2).acidity(SLIGHTLY_ACIDIC, EQUAL, 0.2).nutrients(HIGH, EQUAL_OR_HIGHER, 0.2).light(10, 16, 0.5).build()).build());
+		r(context, "mysticalagriculture", plantId, new AgriPlant.Builder().seeds(AgriSeed.builder().item("mysticalagriculture:" + plantId + "_seeds").build()).stages16().harvest(3).chances(0.65, 0.025, 0.1).products(AgriProduct.builder().item("mysticalagriculture:" + plantId + "_essence").count(1, 1, 0.75).build()).requirement(AgriRequirement.builder().humidity(WET, EQUAL, 0.2).acidity(SLIGHTLY_ACIDIC, EQUAL, 0.2).nutrients(HIGH, EQUAL_OR_HIGHER, 0.2).light(10, 16, 0.5).build()).build());
 	}
 
 	public static void r(BootstapContext<AgriPlant> context, String modid, String plantId, AgriPlant plant) {
