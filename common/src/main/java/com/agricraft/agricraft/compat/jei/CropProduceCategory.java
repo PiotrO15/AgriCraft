@@ -13,6 +13,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -99,8 +100,8 @@ public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 					IRecipeSlotBuilder slotBuilder = builder.addSlot(RecipeIngredientRole.OUTPUT, x, y).setSlotName("output_" + index);
 					slotBuilder.addItemStack(productToItemStack(product));
 					slotBuilder.addTooltipCallback((recipeSlotView, tooltip) -> {
-						tooltip.add(Component.literal(product.chance() + "%"));
-						tooltip.add(Component.literal(product.min() + " - " + product.max()));
+						tooltip.add(Component.literal(product.chance() * 100 + "%").withStyle(ChatFormatting.GRAY));
+						tooltip.add(Component.literal(product.min() == product.max() ? String.valueOf(product.min()) : product.min() + "-" + product.max()).withStyle(ChatFormatting.GRAY));
 					});
 					index++;
 				} else {
