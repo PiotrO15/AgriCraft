@@ -101,7 +101,9 @@ public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 					slotBuilder.addItemStack(productToItemStack(product));
 					slotBuilder.addTooltipCallback((recipeSlotView, tooltip) -> {
 						tooltip.add(Component.literal(product.chance() * 100 + "%").withStyle(ChatFormatting.GRAY));
-						tooltip.add(Component.literal(product.min() == product.max() ? String.valueOf(product.min()) : product.min() + "-" + product.max()).withStyle(ChatFormatting.GRAY));
+						if (product.min() != product.max()) {
+							tooltip.add(Component.literal(product.min() + "-" + product.max()).withStyle(ChatFormatting.GRAY));
+						}
 					});
 					index++;
 				} else {
@@ -121,6 +123,7 @@ public class CropProduceCategory implements IRecipeCategory<AgriPlant> {
 
         Item item = Platform.get().getItemsFromLocation(product.item()).get(0);
 		ItemStack itemStack = new ItemStack(item, product.min());
+		itemStack.setCount(product.min());
 		if (!product.nbt().isEmpty()) {
 			itemStack.getOrCreateTag().merge(product.nbt());
 		}

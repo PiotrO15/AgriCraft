@@ -95,4 +95,7 @@ public final class CoreConfig {
 
 //	public static boolean allowGrassDropResets = false;
 
+	@ConfigEntry(id = "preferred_mods", type = EntryType.STRING, translation = "config.agricraft.core.preferred_mods")
+	@Comment("If a plant has a tag drop with multiple items, an item from the mod with the highest priority will be selected.")
+	public static String[] preferredMods = {"minecraft", "agricraft"};
 }
