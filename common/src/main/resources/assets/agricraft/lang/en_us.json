@@ -204,6 +204,7 @@
   "agricraft.message.trowel_weed": "I can not reach well, I should remove the weeds first.",
   "agricraft.message.trowel_plant": "There already is a plant here.",
   "agricraft.message.trowel_no_plant": "There is nothing here to grab.",
+  "agricraft.message.cant_plant_outside_crop_sticks": "This seed can only be planted on crop sticks.",
 
   "agricraft.gui.jei.produce": "Plant Products",
   "agricraft.gui.jei.clipping": "Plant Clipping",

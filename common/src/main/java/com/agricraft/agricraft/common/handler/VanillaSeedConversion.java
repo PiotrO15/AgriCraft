@@ -13,6 +13,7 @@ import com.agricraft.agricraft.common.block.entity.SeedAnalyzerBlockEntity;
 import com.agricraft.agricraft.common.item.AgriSeedItem;
 import com.agricraft.agricraft.common.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -85,6 +86,7 @@ public class VanillaSeedConversion {
 						return InteractionResult.SUCCESS;
 					}
 					// nothing should happen, but return true to cancel the vanilla crop to be planted
+					player.displayClientMessage(Component.translatable("agricraft.message.cant_plant_outside_crop_sticks"), true);
 					return InteractionResult.FAIL;
 				}).orElse(InteractionResult.PASS);
 			}).orElse(InteractionResult.PASS);

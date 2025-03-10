@@ -225,7 +225,7 @@ public class AgriPlant {
 	}
 
 	public boolean allowsClipping(AgriGrowthStage growthStage, ItemStack clipper, @Nullable LivingEntity entity) {
-		return growthStage.isMature();
+		return growthStage.isMature() && !clipProducts.isEmpty();
 	}
 
 	public Stream<IAgriPlantModifier> getModifiers() {
